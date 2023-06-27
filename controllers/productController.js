@@ -1,6 +1,5 @@
 ﻿const asyncHandler = require("express-async-handler");
 const { Product } = require("../model/Product");
-const { query } = require("express");
 
 //@desc create new product
 //@route GET /product
