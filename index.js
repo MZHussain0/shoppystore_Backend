@@ -2,6 +2,7 @@
 const connectDatabase = require("./db/database");
 const errorHandler = require("./middlewares/ErrorHandler");
 const dotenv = require("dotenv").config();
+const cors = require("cors");
 
 // connecting to database
 connectDatabase();
@@ -11,12 +12,13 @@ const port = process.env.PORT || 5000;
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors({ exposedHeaders: "X-Total-Count" }));
 
 app.use("/products", require("./routes/productRoutes"));
 app.use("/categories", require("./routes/categoryRoute"));
 app.use("/brands", require("./routes/brandRoutes"));
 
-app.use(errorHandler);
+// app.use(errorHandler);
 
 // handling uncaught exception
 process.on("uncaughtException", (err) => {
