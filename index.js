@@ -17,6 +17,8 @@ app.use(cors({ exposedHeaders: "X-Total-Count" }));
 app.use("/products", require("./routes/productRoutes"));
 app.use("/categories", require("./routes/categoryRoute"));
 app.use("/brands", require("./routes/brandRoutes"));
+app.use("/users", require("./routes/userRoutes"));
+app.use("/auth", require("./routes/authRoutes"));
 
 // app.use(errorHandler);
 
